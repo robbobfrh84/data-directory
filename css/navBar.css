@@ -1,0 +1,15 @@
+.siteTitle {
+  background-color: #0049c7;
+  color: white;
+  text-align: center;
+  padding: 3px;
+  font-size: 20px;
+  margin: 0px;
+}
+#graphqlUrl {
+  color: #333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 10px;
+}

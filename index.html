@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en">
+<title> Joplin API Client </title>
+<head>
+  <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/navBar.css">
+  <link rel="stylesheet" href="css/pageSection.css">
+</head>
+<body>
+
+  <h1 class="siteTitle"> Alpha.austin.gov Data Directory </h1>
+
+  <section class="mainBody">
+
+    <input type="radio" name="site" value="-staging">
+      Staging
+    <input type="radio" name="site" value="" checked>
+      Production
+    <br>
+
+    <button id='allInformationPagesBtn'
+      style="margin-bottom: 5px;"
+      onclick="get('allInformationPages')"
+      name="Information pages"
+    >
+      Information pages
+    </button>
+
+    <button id='allServicePagesBtn'
+      onclick="get('allServicePages')"
+      name="Service pages"
+    >
+      Service pages
+    </button>
+
+    <button id='allDepartmentPagesBtn'
+      onclick="get('allDepartmentPages')"
+      name="Department pages"
+    >
+      Department pages
+    </button>
+
+    <button id='allTopicsBtn'
+      onclick="get('allTopics')"
+      name="Topic pages"
+    >
+      Topic pages
+    </button>
+
+    <button id='allTopicCollectionsBtn'
+      onclick="get('allTopicCollections')"
+      name="Topic collections pages"
+    >
+      Topic collections pages
+    </button>
+
+    <button id='allLocationPagesBtn'
+      onclick="get('allLocationPages')"
+      name="Location pages"
+    >
+      Location pages
+    </button>
+
+    <button id='allFormContainersBtn'
+      onclick="get('allFormContainers')"
+      name="Form containers"
+    >
+      Form containers
+    </button>
+
+    <button id='allOfficialDocumentPagesBtn'
+      onclick="get('allOfficialDocumentPages')"
+      name="Official document pages"
+    >
+      Official document pages
+    </button>
+
+    <button id='allGuidePagesBtn'
+      onclick="get('allGuidePages')"
+      name="Guide pages"
+    >
+      Guide pages
+    </button>
+
+    <div id="graphqlUrl"></div>
+    <div id='pagesContainer'></div>
+    <div id='fieldsContainer'></div>
+
+  </section>
+
+  <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>

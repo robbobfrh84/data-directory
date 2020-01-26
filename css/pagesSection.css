@@ -1,0 +1,23 @@
+.titleContainer {
+  margin-bottom: 20px;
+}
+.title {
+  color: #0049c7;
+  font-size: 18px;
+}
+#pagesContainer {
+  background-color: #F0F0F0;
+  width: 420px;
+  overflow: scroll;
+  display: inline-block;
+  vertical-align:top;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+#fieldsContainer {
+  padding: 10px;
+  width: 420px;
+  display: inline-block;
+  vertical-align:top;
+}
