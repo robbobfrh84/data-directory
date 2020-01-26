@@ -1,5 +1,5 @@
-const url = "https://joplin.herokuapp.com/api/graphql/?query="
-const url_head = "http://joplin"
+// const url = "https://joplin.herokuapp.com/api/graphql/?query="
+const url_head = "https://joplin"
 const url_tail = ".herokuapp.com/api/graphql/?query="
 const fields = {}
 
