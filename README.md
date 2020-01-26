@@ -1,10 +1,10 @@
-### TO DO:
-- refactor
+### TO DO(✅):
+- ✅refactor
 - get pages
 - highlight selected
+- url link an <a> tag & smaller and lighter in color (opacity)
 - alphabetize results
 - Loading wheel
-- url link an <a> tag & smaller and lighter in color (opacity)
 
 
 ### RESOURCES
