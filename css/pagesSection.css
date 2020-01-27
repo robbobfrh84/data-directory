@@ -18,5 +18,7 @@
 #fieldsContainer {
   padding: 10px;
   display: inline-block;
-  vertical-align:top;
+  vertical-align: top;
+  max-width: 420px;
+
 }
