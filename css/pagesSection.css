@@ -20,5 +20,10 @@
   display: inline-block;
   vertical-align: top;
   max-width: 420px;
-
+}
+.fieldName {
+  color: #0049c7;
+}
+.fieldValue {
+  font-weight: lighter;
 }

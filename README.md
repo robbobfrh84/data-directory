@@ -1,7 +1,11 @@
 ### TO DO(✅):
 - ✅refactor
-- get pages
-- highlight selected
+- patch pages (simple id)
+- ✅fix link
+- PR
+---
+- make fields a table. (color/bold to highlight)
+- highlight selected pageType and page.
 - url link an <a> tag & smaller and lighter in color (opacity)
 - alphabetize results
 - Loading wheel

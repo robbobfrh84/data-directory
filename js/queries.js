@@ -2,8 +2,7 @@ function buildPageRequestUrl(site, pageType) {
   singularPage = pageType.split('')
   singularPage.pop()
   singularPage = singularPage.join('')
-  return `
-    https://joplin${site}.herokuapp.com/api/graphql/?query=
+  return `https://joplin${site}.herokuapp.com/api/graphql/?query=
     {__type(name:"${singularPage}Node")
       {
         name
@@ -23,52 +22,14 @@ function buildPageRequestUrl(site, pageType) {
           }
         }
       }
-    }
-  `
+    }`
 }
 
 let fieldsList = "" // To be filled in showFields()
 function buildPagesRequestUrl(site, pageType, id) {
   console.log("site, pageType, id :", site, pageType, id)
   console.log("fieldsList :", fieldsList)
-  // const holdFields =
-
-  // id,
-  // path,
-  // depth,
-  // numchild,
-  // title,
-  // draftTitle,
-  // slug,
-  // live,
-  // hasUnpublishedChanges,
-  // urlPath,
-  // seoTitle,
-  // showInMenus,
-  // searchDescription,
-  // goLiveAt,
-  // expireAt,
-  // expired,
-  // locked,
-  // firstPublishedAt,
-  // lastPublishedAt,
-  // latestRevisionCreatedAt,
-  // createdAt,
-  // updatedAt,
-  // authorNotes,
-  // coaGlobal,
-  // description,
-  // options,
-  // additionalContent,
-  // pageType,
-  //
-  // liveRevision,
-  // topics,
-  // relatedDepartments,
-  // contacts,
-
-  const query = `
-    https://joplin${site}.herokuapp.com/api/graphql/?query=
+  const query = `https://joplin${site}.herokuapp.com/api/graphql/?query=
     {
       ${pageType}(id:"${id}") {
         edges {
@@ -77,11 +38,15 @@ function buildPagesRequestUrl(site, pageType, id) {
           }
         }
       }
-    }
-  `
+    }`
   console.log("query :", query)
   return query
 }
+
+
+
+
+
 //
 //
 //

@@ -1,27 +1,37 @@
 function getPages(pageType) {
   const startTime = Date.now()
-  const site = document.querySelector('input[type=radio]:checked').value;
-  const url = buildPageRequestUrl(site, pageType)
+  const site = document.querySelector('input[type=radio]:checked').value
 
-  graphqlUrl.innerHTML = `Graphql Url: <a href="${url}">${url}</a>`
+  let url = buildPageRequestUrl(site, pageType)
+  const encoded_url = encodeQueryString(url)
+
+  graphqlUrl.innerHTML = `Graphql Url: <a href="${encoded_url}">${encoded_url}</a>`
 
   fetch(url)
     .then(res => res.json())
     .then(data => handlePagesResponse(data.data, startTime, ("all" + pageType) ))
 }
 
+
 function getPage(pageType, id) {
   const startTime = Date.now()
   const site = document.querySelector('input[type=radio]:checked').value;
 
   const url = buildPagesRequestUrl(site, pageType, id)
+  const encoded_url = encodeQueryString(url)
 
-  graphqlUrl.innerHTML = `Graphql Url: <a href="${url}">${url}</a>`
+  graphqlUrl.innerHTML = `Graphql Url: <a href="${encoded_url}">${encoded_url}</a>`
 
   fetch(url)
     .then(res => res.json())
     .then(data => handlePageResponse(data.data, startTime, pageType))
 }
+
+
+function encodeQueryString(url){
+  return encodeURI(url)
+}
+
 
 function handlePagesResponse(data, startTime, page) {
   console.log(data)
@@ -30,17 +40,17 @@ function handlePagesResponse(data, startTime, page) {
   showFields(data.__type.fields)
 }
 
+
 function handlePageResponse(data, startTime, page) {
-  console.log("data, startTime, page: ", data, startTime, page)
-  console.log(data[page].edges[0].node)
   for (const key in data[page].edges[0].node) {
-    console.log(key)
     const field = document.getElementById('fieldName-'+key)
     field.innerHTML = /*html*/`
-       • ${key}: ${data[page].edges[0].node[key]}
+       <none class='fieldName'> • ${key}: </none>
+       <none class='fieldValue'> ${data[page].edges[0].node[key]} </none>
     `
   }
 }
+
 
 function updateInfo(data, page, startTime){
   const btn = document.getElementById(page+"Btn")
@@ -56,6 +66,7 @@ function updateInfo(data, page, startTime){
   `
 }
 
+
 function showPages(pages, pageType) {
   pages.forEach(page => {
     pagesContainer.innerHTML += /*html*/`
@@ -68,29 +79,16 @@ function showPages(pages, pageType) {
   pagesContainer.style.opacity = 1
 }
 
+
 function showFields(fields) {
   fieldsContainer.innerHTML = /*html*/`
     <div class="title"> Fields </div>
   `
   fieldsList = ""
   fields.forEach(field =>{
-    // fieldsList += field.name + ","
-
-    //
-    //
     fieldsList += field.name
-    if (field.name === "liveRevision") fieldsList += '{id}'
-    if (field.name === "steps") fieldsList += '{value,stepType}'
-    if ([
-      "relatedDepartments",
-      "topics",
-      "contacts",
-      "locationpagerelatedservicesSet",
-    ].includes(field.name)) fieldsList += '{edges{node{id}}}'
+    fieldsList += queryPatches(field.name)
     fieldsList += ","
-    //
-    //
-
     fieldsContainer.innerHTML += /*html*/`
       <div id="fieldName-${field.name}"> • ${field.name}: </div>
     `
