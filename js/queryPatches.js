@@ -1,15 +1,25 @@
 function queryPatches (field){
   let args = ""
 
-  if (field === "steps") args += '{value,stepType}'
-  else if (field === "sections") args += '{value,heading}'
+  if (field === "steps") args += `
+    {
+      value,
+      stepType,
+    }
+  `
+  else if (field === "sections") args += `
+    {value,heading}
+  `
 
   else if ([
     "liveRevision",
     "image",
     "theme",
     "physicalLocationPhoto",
-  ].includes(field)) args += '{id}'
+  ].includes(field)) args +=  `
+    {id}
+  `
+
   else if ([
     "relatedDepartments",
     "topics",
@@ -26,7 +36,13 @@ function queryPatches (field){
     "topiccollections",
     "relatedServices",
     "officialDocuments",
-  ].includes(field)) args += '{edges{node{id}}}'
+  ].includes(field)) args += `
+    {
+      edges {
+        node{id}
+      }
+    }
+  `
 
   return args
 }
