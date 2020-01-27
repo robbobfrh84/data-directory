@@ -34,7 +34,6 @@ function encodeQueryString(url){
 
 
 function handlePagesResponse(data, startTime, page) {
-  console.log(data)
   updateInfo(data, page, startTime)
   showPages(data[page].edges, page)
   showFields(data.__type.fields)

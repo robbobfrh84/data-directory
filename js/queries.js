@@ -25,10 +25,9 @@ function buildPageRequestUrl(site, pageType) {
     }`
 }
 
+
 let fieldsList = "" // To be filled in showFields()
 function buildPagesRequestUrl(site, pageType, id) {
-  console.log("site, pageType, id :", site, pageType, id)
-  console.log("fieldsList :", fieldsList)
   const query = `https://joplin${site}.herokuapp.com/api/graphql/?query=
     {
       ${pageType}(id:"${id}") {
@@ -39,7 +38,6 @@ function buildPagesRequestUrl(site, pageType, id) {
         }
       }
     }`
-  console.log("query :", query)
   return query
 }
 
