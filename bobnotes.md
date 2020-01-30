@@ -1,7 +1,7 @@
 ### TO DO(✅):
 ---
-- Style Life Icon: fix style for sperate containers to force live icon to upper left.
-- Make Fields response talbe. 
+- ✅Style Life Icon: fix style for sperate containers to force live icon to upper left.
+- Make Fields response. 
 - Build out patches to show 100% of data
 - query live as default with id, title, *live*, add icon.
   - Also  `updatedAt` ?

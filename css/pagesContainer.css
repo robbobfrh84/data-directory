@@ -1,0 +1,33 @@
+#pagesContainer {
+  background-color: #F0F0F0;
+  float: left;
+  width: 450px;
+  overflow: scroll;
+  vertical-align:top;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity .3s;
+  margin-right: 10px;
+}
+.pagesTitleContainer {
+  margin-bottom: 20px;
+}
+.pagesTitle {
+  color: #0049c7;
+  font-size: 18px;
+}
+.pageListContaineer {
+  width: 440px;
+  margin-left: 0px;
+}
+.pageListTitle {
+  width: 390px;
+  display: inline-block;
+}
+.liveIcon {
+  padding-left: 10px;
+  font-size: 10px;
+  color: #333;
+  display: inline-block;
+  vertical-align: top;
+}

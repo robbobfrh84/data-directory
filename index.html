@@ -6,90 +6,107 @@
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/navBar.css">
-  <link rel="stylesheet" href="css/pagesSection.css">
+  <link rel="stylesheet" href="css/pagesContainer.css">
+  <link rel="stylesheet" href="css/fieldsContainer.css">
 </head>
 <body>
 
-  <h1 class="siteTitle"> Alpha.austin.gov Data Directory </h1>
+  <menu id="navBar">
 
-  <section class="mainBody">
+    <h1 id="siteTitle"> Alpha.austin.gov Data Directory </h1>
 
-    <input type="radio" name="site" value="-staging">
-      Staging
-    <input type="radio" name="site" value="" checked>
-      Production
-    <br>
+    <section id="pagesButtonsContainer">
 
-    <button id='allInformationPagesBtn'
-      style="margin-bottom: 5px;"
-      onclick="getPages('InformationPages')"
-      name="Information pages"
-    >
-      Information pages
-    </button>
+      <div id="dbRadioButtonsContainer">
+        <input type="radio" name="site" value="-staging">
+          Staging
+        <input type="radio" name="site" value="" checked>
+          Production
+      </div>
 
-    <button id='allServicePagesBtn'
-      onclick="getPages('ServicePages')"
-      name="Service pages"
-    >
-      Service pages
-    </button>
+      <button id='allInformationPagesBtn'
+        style="margin-bottom: 5px;"
+        onclick="getPages('InformationPages')"
+        name="Information pages"
+      >
+        Information pages
+      </button>
 
-    <button id='allDepartmentPagesBtn'
-      onclick="getPages('DepartmentPages')"
-      name="Department pages"
-    >
-      Department pages
-    </button>
+      <button id='allServicePagesBtn'
+        onclick="getPages('ServicePages')"
+        name="Service pages"
+      >
+        Service pages
+      </button>
 
-    <button id='allTopicsBtn'
-      onclick="getPages('Topics')"
-      name="Topic pages"
-    >
-      Topic pages
-    </button>
+      <button id='allDepartmentPagesBtn'
+        onclick="getPages('DepartmentPages')"
+        name="Department pages"
+      >
+        Department pages
+      </button>
 
-    <button id='allTopicCollectionsBtn'
-      onclick="getPages('TopicCollections')"
-      name="Topic collections pages"
-    >
-      Topic collections pages
-    </button>
+      <button id='allTopicsBtn'
+        onclick="getPages('Topics')"
+        name="Topic pages"
+      >
+        Topic pages
+      </button>
 
-    <button id='allLocationPagesBtn'
-      onclick="getPages('LocationPages')"
-      name="Location pages"
-    >
-      Location pages
-    </button>
+      <button id='allTopicCollectionsBtn'
+        onclick="getPages('TopicCollections')"
+        name="Topic collections pages"
+      >
+        Topic collections pages
+      </button>
 
-    <button id='allFormContainersBtn'
-      onclick="getPages('FormContainers')"
-      name="Form containers"
-    >
-      Form containers
-    </button>
+      <button id='allLocationPagesBtn'
+        onclick="getPages('LocationPages')"
+        name="Location pages"
+      >
+        Location pages
+      </button>
 
-    <button id='allOfficialDocumentPagesBtn'
-      onclick="getPages('OfficialDocumentPages')"
-      name="Official document pages"
-    >
-      Official document pages
-    </button>
+      <button id='allFormContainersBtn'
+        onclick="getPages('FormContainers')"
+        name="Form containers"
+      >
+        Form containers
+      </button>
 
-    <button id='allGuidePagesBtn'
-      onclick="getPages('GuidePages')"
-      name="Guide pages"
-    >
-      Guide pages
-    </button>
+      <button id='allOfficialDocumentPagesBtn'
+        onclick="getPages('OfficialDocumentPages')"
+        name="Official document pages"
+      >
+        Official document pages
+      </button>
+
+      <button id='allGuidePagesBtn'
+        onclick="getPages('GuidePages')"
+        name="Guide pages"
+      >
+        Guide pages
+      </button>
+
+    </section>
 
     <div id="graphqlUrl"></div>
+
+  </menu>
+
+  <section id="mainBody">
+
     <section id='pagesContainer'></section>
     <section id='fieldsContainer'></section>
 
   </section>
 
+
+  <!-- COMPONENTS -->
+  <script type="text/javascript" src="components/pages.js"></script>
+  <script type="text/javascript" src="components/fields.js"></script>
+
+  <!-- API Handlers -->
   <script type="text/javascript" src="js/queries.js"></script>
   <script type="text/javascript" src="js/queryPatches.js"></script>
   <script type="text/javascript" src="js/handleQueries.js"></script>

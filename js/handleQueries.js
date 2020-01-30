@@ -27,13 +27,6 @@ function getPage(pageType, id) {
     .then(data => handlePageResponse(data.data, startTime, pageType))
 }
 
-componendDidMount(){
- url = 'your query string here' + "your new info from global"
- fetch(url)
-   .then(res => res.json())
-   .then(data => doSomethingWith2ndResponseData(data)
-}
-
 
 function encodeQueryString(url){
   return encodeURI(url)
@@ -42,7 +35,7 @@ function encodeQueryString(url){
 
 function handlePagesResponse(data, startTime, page) {
   console.log("data :", data)
-  updateInfo(data, page, startTime)
+  updatePagesInfo(data, page, startTime)
   showPages(data[page].edges, page)
   showFields(data.__type.fields)
 }
@@ -53,39 +46,32 @@ function handlePageResponse(data, startTime, page) {
   for (const key in data[page].edges[0].node) {
     const field = document.getElementById('fieldName-'+key)
     field.innerHTML = /*html*/`
-       <none class='fieldName'> • ${key}: </none>
-       <none class='fieldValue'> ${data[page].edges[0].node[key]} </none>
+      <div>
+        <none class='fieldName'>• ${key}:</none>
+        <none class='fieldValue'>${data[page].edges[0].node[key]}</none>
+      </div>
     `
   }
 }
 
 
-function updateInfo(data, page, startTime){
+function updatePagesInfo(data, page, startTime){
   const btn = document.getElementById(page+"Btn")
   btn.innerHTML = btn.name+"("+data[page].edges.length+")"
-  const endTime = Date.now()
-  pagesContainer.innerHTML = /*html*/`
-    <div class="titleContainer">
-      <div class="title"> ${btn.name} </div>
-      Delay(sec): ${(endTime-startTime) / 1000}
-      &nbsp; | &nbsp;
-      Total Pages: ${data[page].edges.length}
-    </div>
-  `
+  pagesInfoHTML({
+    name: btn.name,
+    delay: Date.now()-startTime,
+    total: data[page].edges.length
+  })
 }
 
 
 function showPages(pages, pageType) {
   pages.forEach(page => {
-    pagesContainer.innerHTML += /*html*/`
-      <div
-        class='pageBtn'
-        onclick="getPage('${pageType}', '${page.node.id}')"
-      >
-        ${page.node.title}
-        <span class="liveIcon">${page.node.live ? ' | Live 🟢' : ''}</span>
-      </div>
-    `
+    showPagesHTML({
+      pageType,
+      page: page.node
+    })
   })
   pagesContainer.style.opacity = 1
 }
@@ -101,7 +87,12 @@ function showFields(fields) {
     fieldsList += queryPatches(field.name)
     fieldsList += ","
     fieldsContainer.innerHTML += /*html*/`
-      <div id="fieldName-${field.name}"> • ${field.name}: </div>
+      <div
+        id="fieldName-${field.name}"
+        class="fieldContainer"
+      >
+        <div class="fieldName">• ${field.name}</div>
+      </div>
     `
   })
 }
