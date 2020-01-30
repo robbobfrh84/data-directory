@@ -1,26 +1,22 @@
 ### TO DO(✅):
-- ✅refactor
-- patch pages (simple id)
-- ✅fix link
-- PR
 ---
+- Style Life Icon: fix style for sperate containers to force live icon to upper left.
+- Make Fields response talbe. 
+- Build out patches to show 100% of data
+- query live as default with id, title, *live*, add icon.
+  - Also  `updatedAt` ?
+- Update page return data like pages list to have  delay, title etc...
+- Get all  
+- Add [Copy as graphql query btn]
+- Store locally (add refresh btn)
 - make fields a table. (color/bold to highlight)
 - highlight selected pageType and page.
-- url link an <a> tag & smaller and lighter in color (opacity)
 - alphabetize results
 - Loading wheel
+- Add "download all as json" Option
 
 
 ### RESOURCES
 - https://graphql.org/learn/introspection/
 
-
 ### Saved Notes
-
-const url_string = "abc=foo&def=%5Basf%5D&xyz=5&foo=b%3Dar";
-const parsed_url_string = JSON.parse('{"' + decodeURI(joplin_url_string).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
-const query = new URLSearchParams(example_params).toString();
-
-
-// const url = url_head + site + url_tail + requests.pageHead + pageType + '(id:"' + id + requests.pageTail
-// graphqlUrl.innerHTML = "Graphql Url: " + url

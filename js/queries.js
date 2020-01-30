@@ -19,6 +19,7 @@ function buildPageRequestUrl(site, pageType) {
           node {
             title
             id
+            live
           }
         }
       }

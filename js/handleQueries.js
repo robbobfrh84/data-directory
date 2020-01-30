@@ -27,6 +27,13 @@ function getPage(pageType, id) {
     .then(data => handlePageResponse(data.data, startTime, pageType))
 }
 
+componendDidMount(){
+ url = 'your query string here' + "your new info from global"
+ fetch(url)
+   .then(res => res.json())
+   .then(data => doSomethingWith2ndResponseData(data)
+}
+
 
 function encodeQueryString(url){
   return encodeURI(url)
@@ -34,6 +41,7 @@ function encodeQueryString(url){
 
 
 function handlePagesResponse(data, startTime, page) {
+  console.log("data :", data)
   updateInfo(data, page, startTime)
   showPages(data[page].edges, page)
   showFields(data.__type.fields)
@@ -41,6 +49,7 @@ function handlePagesResponse(data, startTime, page) {
 
 
 function handlePageResponse(data, startTime, page) {
+  console.log("data :", data)
   for (const key in data[page].edges[0].node) {
     const field = document.getElementById('fieldName-'+key)
     field.innerHTML = /*html*/`
@@ -72,7 +81,10 @@ function showPages(pages, pageType) {
       <div
         class='pageBtn'
         onclick="getPage('${pageType}', '${page.node.id}')"
-      >${page.node.title}</div>
+      >
+        ${page.node.title}
+        <span class="liveIcon">${page.node.live ? ' | Live 🟢' : ''}</span>
+      </div>
     `
   })
   pagesContainer.style.opacity = 1
