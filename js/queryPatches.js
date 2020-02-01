@@ -1,14 +1,19 @@
-function queryPatches (field){
+function queryPatches(field){
   let args = ""
 
   if (field === "steps") args += `
     {
-      value,
-      stepType,
+      id
+      value
+      stepType
     }
   `
   else if (field === "sections") args += `
-    {value,heading}
+    {
+      id
+      value
+      heading
+    }
   `
 
   else if ([
@@ -17,17 +22,20 @@ function queryPatches (field){
     "theme",
     "physicalLocationPhoto",
   ].includes(field)) args +=  `
-    {id}
+    {
+      id
+      __typename
+    }
   `
 
   else if ([
     "relatedDepartments",
     "topics",
     "contacts",
-    "locationpagerelatedservicesSet",
-    "informationpagerelateddepartmentsSet",
-    "servicepagerelateddepartmentsSet",
-    "guidepagerelateddepartmentsSet",
+    // "locationpagerelatedservicesSet",
+    // "informationpagerelateddepartmentsSet",
+    // "servicepagerelateddepartmentsSet",
+    // "guidepagerelateddepartmentsSet",
     "officialdocumentpagerelateddepartmentsSet",
     "departmentDirectors",
     "topPages",
@@ -36,13 +44,41 @@ function queryPatches (field){
     "topiccollections",
     "relatedServices",
     "officialDocuments",
+    // "eventpagerelateddepartmentsSet"
   ].includes(field)) args += `
     {
       edges {
-        node{id}
+        node {
+          id
+          __typename
+        }
+      }
+    }
+  `
+  // Refactore to share this bit with queries.js
+  else if ([
+    "locationpagerelatedservicesSet",
+    "informationpagerelateddepartmentsSet",
+    "servicepagerelateddepartmentsSet",
+    "guidepagerelateddepartmentsSet",
+    // "officialdocumentpagerelateddepartmentsSet",
+    "eventpagerelateddepartmentsSet"
+  ].includes(field)) args += `
+    {
+      edges {
+        node {
+          id,
+          __typename
+          page {
+            id
+            title
+            live
+            __typename
+          }
+        }
       }
     }
   `
 
-  return args
+  return args // ? args : ",\n"
 }

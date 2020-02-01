@@ -9,6 +9,7 @@ body {
 }
 #mainBody {
   padding: 5px;
+  display: flex;
 }
 input {
   margin-top: 10px;
@@ -29,6 +30,10 @@ button:hover, .pageBtn:hover {
 }
 .pageBtn {
   padding: 3px;
-  margin: 2px;
+  margin: 1px;
   width: 400px;
+  display: inline-block;
+}
+.lightNote {
+  color: red;
 }

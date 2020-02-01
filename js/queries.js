@@ -3,7 +3,8 @@ function buildPageRequestUrl(site, pageType) {
   singularPage.pop()
   singularPage = singularPage.join('')
   return `https://joplin${site}.herokuapp.com/api/graphql/?query=
-    {__type(name:"${singularPage}Node")
+    {
+      __type(name:"${singularPage}Node")
       {
         name
         fields {
@@ -20,6 +21,7 @@ function buildPageRequestUrl(site, pageType) {
             title
             id
             live
+            __typename
           }
         }
       }

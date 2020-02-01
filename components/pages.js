@@ -10,8 +10,9 @@ function pagesInfoHTML({ name, delay, total }) {
 }
 
 function showPagesHTML({ pageType, page }) {
-  pagesContainer.innerHTML += /*html*/`
-    <div
+  // let elm = elmId ? elmId.innerHTML : ''
+  console.log("pageType :", pageType)
+  return /*html*/`<div
       class='pageBtn pageListContaineer'
       onclick="getPage('${pageType}', '${page.id}')"
     >
