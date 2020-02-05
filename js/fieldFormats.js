@@ -2,9 +2,9 @@ function fieldFormats( key, value ){
 
   formatted = value
 
-  if (typeof value === "object") {
-    console.log("🔥is an object: key, value", key, value)
-  }
+  // if (typeof value === "object") {
+  //   console.log("🔥is an object: key, value", key, value)
+  // }
 
   if (key === 'urlPath') {
     // const site = siteUrls[currentSite] + value.split('/home').join(currentLanguage)
@@ -20,7 +20,7 @@ function fieldFormats( key, value ){
     "informationpagerelateddepartmentsSet",
     "servicepagerelateddepartmentsSet",
     "guidepagerelateddepartmentsSet",
-    // "officialdocumentpagerelateddepartmentsSet",
+    // "officialdocumentpagerelateddepartmentsSet", // ?
     "eventpagerelateddepartmentsSet"
   ].includes(key)) {
     formatted = ""

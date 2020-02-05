@@ -1,6 +1,7 @@
 window.onload = function() {
 
-  console.log('hellllo', currentSite, currentLanguage)
-  getPages('DepartmentPages', true)
+  console.log('onload', currentSite, currentLanguage)
+  // console.log("Get All Department Pages")
+  // getPages('DepartmentPages', true)
 
 }

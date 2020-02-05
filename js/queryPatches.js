@@ -36,11 +36,11 @@ function queryPatches(field){
     // "informationpagerelateddepartmentsSet",
     // "servicepagerelateddepartmentsSet",
     // "guidepagerelateddepartmentsSet",
-    "officialdocumentpagerelateddepartmentsSet",
+    "officialdocumentpagerelateddepartmentsSet", // ?
     "departmentDirectors",
     "topPages",
     "relatedPages",
-    "formcontainerrelateddepartmentsSet",
+    "formcontainerrelateddepartmentsSet", // ?
     "topiccollections",
     "relatedServices",
     "officialDocuments",

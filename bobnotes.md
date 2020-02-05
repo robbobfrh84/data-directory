@@ -1,20 +1,16 @@
 ### TO DO(✅):
 
-Where I left off.
-- I added the relatedPages of just the info pages in the department page but still need to get all those fields when they're queried.
-
-- Then, Can i get "relatedDepartmenss" for those pages?
-  - IF NO? I can onmount get the department pages and build the contextual nav!
-- fix staging/prod radio: Add event to change global currentSite
+refactor:
+- Organize API functions
+- 'events/clickedPageType.js'
+- 'events/clickedPage.js'
 
 ---
-- ✅Style Life Icon: fix style for containers to force live icon to upper left.
 - ✅Make Fields response.
-- ... refactor field pages
-- Build out patches to show 100% of data
-
-
-
+- Finish getting all departmentPage info.
+- Make global storage object pageTypes: {fields: {...}, pages {...}}
+  - That means, when all pages are clicked, no more pages quires.
+- Handle department page clicking a related page. Use pageTypes object
 
 Options...
 - Update page return data like pages list to have  delay, title etc...
@@ -29,6 +25,9 @@ Options...
 
 Nice to Have
 - actually query all the top level queirs and have a "list" of our sites "pages" to show like we have now. THat way adding a new dept. type will just be adding the name to that list.
+
+### Questions to solve.
+- Urls unrelated to this structure. HOWEVER, (sitestructure is a graphiql query. what does that look like).
 
 ### WHY? What could this be good for / helpful
 - Looking up links to pages,
